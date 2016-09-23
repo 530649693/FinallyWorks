@@ -1,0 +1,27 @@
+//为了在无论是否抛出异常 都执行一些代码 可以在异常处理后面加上finally
+public class FinallyWorks {
+	static int c = 0;
+	public static void main(String[] args) {
+		while(true){
+			try {
+				if(c++==0){
+					throw new Exception();
+				}
+				System.out.println("不抛异常");
+			} catch (Exception e) {
+				System.out.println("获取异常");
+			}
+			finally{
+				System.out.println("进入finally语句");
+				if(c == 2){
+					break;
+				}
+			}
+		}
+	}
+}	/*output:
+获取异常
+进入finally语句
+不抛异常
+进入finally语句
+*///:~
